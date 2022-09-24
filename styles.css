@@ -89,12 +89,13 @@ body {
 }
 
 nav {
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+    max-width: 390px;
+    margin: 0 auto;
 }
 
 .skilled_logo {
@@ -124,7 +125,16 @@ nav {
 .hero_section {
     display: flex;
     flex-direction: column;
+    align-self: center;
     padding: 20px 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.image_container {
+    display: none;
+    width: 100%;
+    height: 120%;
 }
 
 .hero_section_title {
@@ -133,10 +143,26 @@ nav {
     line-height: 50px;
 }
 
-.hero_section_para {
+.hero_section_para_mobile {
     font-size: 16px;
     color: #83869A;
     line-height: 26px;
+    padding: 25px 0px;
+}
+
+.hero_section_para_tablet {
+    display: none;
+    font-size: 16px;
+    color: #83869A;
+    line-height: 26px;
+    padding: 25px 0px;
+}
+
+.hero_section_para_desktop {
+    display: none;
+    font-size: 18px;
+    color: #83869A;
+    line-height: 28px;
     padding: 25px 0px;
 }
 
@@ -159,21 +185,45 @@ nav {
     cursor: pointer;
 }
 
-.hero_section_image {
+.hero_section_image_tablet {
+    display: none;
+}
+
+.hero_section_image_desktop {
+    display: none;
+    position: absolute;
+    top: -261px;
+    transform : translateX(20%);
+    object-fit: contain;
+    clip-path: inset( 0% 0% 0% 0%);
+    overflow: hidden;
+}
+
+.hero_section_image_mobile_container {
     width: 100%;
-    margin-top: 15px;
+    display: flex;
+}
+
+.hero_section_image_mobile {
+    width: 100%;
+    max-width: 400px;
+    margin: 15px auto 0px auto;
 }
 
 .courses_section {
+    width: 100%;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);;
+}
+
+.courses_content {
     padding: 0px 20px 56px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);;
 }
 
-.check_out_badge {
+.check_out_badge_mobile {
     width: 343px;
     height: 120px;
     background: linear-gradient(180deg, #FF6F48 0.04%, #F02AA6 100%);
@@ -187,6 +237,23 @@ nav {
     font-weight: 700;
     line-height: 32px;
     color: #FFFFFF;
+}
+
+.check_out_badge_desktop {
+    display: none;
+    width: 350px;
+    height: 322px;
+    background: linear-gradient(180deg, #FF6F48 0.04%, #F02AA6 100%);
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 60px 30px;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    color: #FFFFFF;
+    align-self: end;
 }
 
 .check_out_badge h3 {  
@@ -217,14 +284,23 @@ nav {
     left: 31px;
 }
 
-.course_info_section {
+.course_info_section_mobile {
     font-size: 16px;
     font-weight: 400;
     color: #83869A;
     line-height: 26px;
 }
 
+.course_info_section_desktop {
+    display: none;
+    font-size: 18px;
+    font-weight: 400;
+    color: #83869A;
+    line-height: 28px;
+}
+
 .get_started_crs_btn {
+    width: 110px;
     font-size: 18px;
     font-weight: 600;
     color: #F74780;
@@ -239,12 +315,15 @@ nav {
 footer {
     width: 100%;
     height: 120px;
+    background: #13183F;
+}
+
+.footer_content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: #13183F;
 }
 
 .skilled_logo_footer {
@@ -270,4 +349,181 @@ footer {
     opacity: 0.5;
     transition: ease-in-out 0.2s;
     cursor: pointer;
+}
+
+/* Media queries */
+
+@media (min-width: 768px) {
+
+    nav {
+        padding: 30px 40px;
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .hero_section {
+        padding: 78px 40px 177px 40px;
+        flex-direction: row;
+        position: relative;
+        max-width: 800px;
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .image_container {
+        max-width: 768px;
+        display: block;
+        background-image: url(./assets/image-hero-tablet.png);
+        background-repeat: no-repeat;
+        background-position: 510% -16%;
+        position: absolute;
+        margin: 0 auto;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .hero_section_image_mobile {
+        display: none;
+    }
+
+    .hero_section_para_mobile {
+        display: none;
+    }
+
+    .hero_section_para_tablet {
+        display: block;
+    }
+
+    .hero_section_image_tablet {
+        display: block;
+        position: absolute;
+        top: -183px;
+        right: -296px;
+        clip-path: inset( 0% 40% 0% 0%);
+        object-fit: scale-down;
+    }
+
+    .courses_content {
+        padding: 0px 30px 58px 30px;
+        flex-direction: initial;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .check_out_badge_mobile {
+        width: 339px;
+        height: 259px;
+        justify-content: flex-start;
+        padding: 50px 30px;
+        align-self: end;
+        margin-bottom: 30px;
+    }
+
+    .course_badge {
+        width: 339px;
+        height: 259px;
+        margin: 30px 0px;
+    }
+
+    .course_info_section_mobile {
+        display: none;
+    }
+
+    .course_info_section_desktop {
+        display: block;
+    }
+
+    footer {
+        padding: 15px 40px;
+    }
+
+    .footer_content {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    
+    body {
+    }
+    
+    nav {
+        max-width: 1190px;
+    }
+
+    .skilled_logo {
+        font-size: 36px;
+    }
+
+    .get_started_btn {
+        width: 167px;
+        height: 56px;
+        font-size: 18px;
+    }
+
+    .image_container {
+        max-width: 1440px;
+        background-image: url(./assets/image-hero-desktop.png);
+        background-position: 190% 148%;
+    }
+
+    .hero_section {
+        max-width: 1190px;
+        padding: 137px 40px 177px 40px;
+    }
+
+    .hero_section_title {
+        font-size: 56px;
+        line-height: 70.56px;
+    }
+
+    .hero_section_para_tablet {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .hero_section_image_tablet {
+        display: none;
+    }
+
+    .hero_section_image_desktop {
+        display: flex;
+    }
+
+    .courses_content {
+        max-width: 1190px;
+        padding: 70px 30px 58px 30px;
+    }
+
+    .check_out_badge_mobile {
+        display: none;
+    }
+
+    .check_out_badge_desktop {
+        display: block;
+    }
+
+    .course_badge {
+        width: 350px;
+        height: 322px;  
+        padding: 55px 10px 32px 34px;
+    }
+
+    .course_badge h4 {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .course_info_section {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .footer_content {
+        max-width: 1190px;
+    }
 }
